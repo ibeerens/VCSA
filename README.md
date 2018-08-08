@@ -27,16 +27,16 @@ templates/
 Deployment
 
 Perform a template verification without installing:
-vcsa-deploy install --accept-eula --verify-template-only <JSON file path>
+         vcsa-deploy install --accept-eula --verify-template-only <JSON file path>
 
 Deploy a VCSA using a template:
-vcsa-deploy.exe install --accept-eula --acknowledge-ceip --terse --no-ssl-certificate-verification <JSON file path>
+         vcsa-deploy.exe install --accept-eula --acknowledge-ceip --terse --no-ssl-certificate-verification <JSON file path>
 
 
 Options:
 
 Information about deployment sizes:
-vcsa-cli-installer\win32>vcsa-deploy.exe --supported-deployment-sizes
+         vcsa-cli-installer\win32>vcsa-deploy.exe --supported-deployment-sizes
 
 
 |Options                     |vCPUs |Memory(GB)|Storage(GB)| Hosts(up to)|VMs(up to)|
