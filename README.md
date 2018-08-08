@@ -1,14 +1,36 @@
 # VCSA
 Automated deployment of the vCenter Server Appliance deployment
 
-Getting help
+Mount the VCSA 6.7 ISO and navigate to:
+win32/vcsa-deploy.exe
 
-vcsa-deploy.exe install --help
+Getting help:
+Help            |   vcsa-deploy.exe install --help
+Template help   |   vcsa-deploy install --template-help
+
+Templates can be found:
+
+templates/
+         install/
+                Use these templates to install a vCSA/PSC instance.
+
+                embedded_vCSA_on_*.json: Platform Services Controller (PSC) and vCSA
+                                         together on one system
+                PSC_on_*.json:           Only a PSC
+                vCSA_on_*.json:          Only a vCSA
+                *_on_ESXi.json:          Install onto the ESXi host specified in the JSON
+                                         file
+                *_on_VC.json:            Install onto a host managed by the vCenter
+                                         instance specified in the JSON file
 
 
-deployment
+Deployment
 
-vcsa-deploy.exe install --accept-eula --acknowledge-ceip --terse --no-ssl-certificate-verification <location_to_the_json_file>
+Perform a template verification without installing:
+vcsa-deploy install --accept-eula --verify-template-only <JSON file path>
+
+Deploy a VCSA using a template:
+vcsa-deploy.exe install --accept-eula --acknowledge-ceip --terse --no-ssl-certificate-verification <JSON file path>
 
 
 Options:
