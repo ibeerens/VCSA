@@ -1,20 +1,36 @@
-# VCSA
-Automated deployment of the vCenter Server Appliance deployment
+# vCenter Server deployment
 
-Mount the VCSA 6.7 ISO and navigate to:
+## Automated deployment of the vCenter Server Appliance deployment
+Use the CLI installer to install, upgrade or migrate the vCenter Server.
+In this example we use the CLI installer for installing a new VCSA using a Windows Operating system. The CLI installer use a JSON file for the VCSA install.
 
-         win32/vcsa-deploy.exe
+# Windows environment PRE check
+The CLI installer for Windows requires a Microsoft Visual C++ Redistributable version 14.0. This can be checked with the following command:
 
-Getting help:
+      \vcsa-cli-installer\win32\check_windows_vc_redist.bat
+
+
+#### CLI installer
+
+The first step is to mount the VCSA 6.7 ISO and navigate to:
+
+         \vcsa-cli-installer\win32\vcsa-deploy.exe
+
+
+#### Help
+
+For more information about the syntax and parameters help can used:
 
          vcsa-deploy.exe install --help
          vcsa-deploy install --template-help
 
-Templates can be found:
+#### JSON templates
 
-templates/
-         install/
-                Use these templates to install a vCSA/PSC instance.
+JSON Templates can be found:
+
+        \vcsa-cli-installer\templates\install
+
+The following templates are available:
 
                 embedded_vCSA_on_*.json: Platform Services Controller (PSC) and vCSA
                                          together on one system
@@ -25,8 +41,10 @@ templates/
                 *_on_VC.json:            Install onto a host managed by the vCenter
                                          instance specified in the JSON file
 
+Use one of these JSON templates as starting point. Or use the embedded_VCSA_on_ESXi.json example. I used this example in my lab environment for a embedded VCSA deployment with the PSC and VCSA together.
 
-Deployment
+#### Deployment
+**Note:** *Before deploying make sure a DNS record for the VCSA FQDN is defined.*
 
 Perform a template verification without installing:
 
@@ -37,7 +55,7 @@ Deploy a VCSA using a template:
          vcsa-deploy.exe install --accept-eula --acknowledge-ceip --terse --no-ssl-certificate-verification <JSON file path>
 
 
-Options:
+**Options:**
 
 Information about deployment sizes:
 
