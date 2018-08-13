@@ -1,8 +1,8 @@
 # vCenter Server deployment
 
 ## Automated deployment of the vCenter Server Appliance deployment
-Use the CLI installer to install, upgrade or migrate the vCenter Server.
-In this example we use the CLI installer for installing a new VCSA using a Windows Operating system. The CLI installer use a JSON file for the VCSA install.
+Use the CLI installer to silent install, upgrade or migrate a vCenter Server.
+In this example we use the CLI installer for installing a new VCSA using a Windows Operating system. The CLI installer use a JSON file for the deployment information of the VCSA install.
 
 # Windows environment PRE check
 The CLI installer for Windows requires a Microsoft Visual C++ Redistributable version 14.0. This can be checked with the following command:
@@ -41,21 +41,28 @@ The following templates are available:
                 *_on_VC.json:            Install onto a host managed by the vCenter
                                          instance specified in the JSON file
 
-Use one of these JSON templates as starting point. Or use the embedded_VCSA_on_ESXi.json example. I used this example in my lab environment for a embedded VCSA deployment with the PSC and VCSA together.
+Use one of these JSON templates as starting point or use the **embedded_vcsa_on_esxi.json** example file. I created this example for an embedded VCSA deployment directly on my ESXi host in my lab environment.
+
+Customize the JSON file in a text editor and save the file to a folder on you're desktop. Refer the the JSON when deploying the new VCSA.
 
 #### Deployment
-**Note:** *Before deploying make sure a DNS record for the VCSA FQDN is defined.*
+**Note:** *Before the VCSA deploment create a DNS record for the VCSA FQDN**
 
 Perform a template verification without installing:
 
          vcsa-deploy install --accept-eula --verify-template-only <JSON file path>
 
-Deploy a VCSA using a template:
+Deploy an embedded VCSA on a ESXi host using a JSON template:
 
          vcsa-deploy.exe install --accept-eula --acknowledge-ceip --terse --no-ssl-certificate-verification <JSON file path>
 
+*Options:*
 
-**Options:**
+        --accept-eula                       Accept the End-user license agreement
+        --acknowledge-ceip                  Confirm the VMware Customer Experience Program
+        --terse                             Only warning and error information will be  displayed
+        --no-ssl-certificate-verification   Skip SSL certificate verification for all server connections
+
 
 Information about deployment sizes:
 
