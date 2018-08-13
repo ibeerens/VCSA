@@ -1,4 +1,4 @@
-# vCenter Server deployment
+# Automated vCenter Server deployment
 
 ## Automated deployment of the vCenter Server Appliance deployment
 Use the CLI installer to silent install, upgrade or migrate a vCenter Server.
