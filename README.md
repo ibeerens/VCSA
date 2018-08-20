@@ -46,7 +46,7 @@ Use one of these JSON templates as starting point or use the **embedded_vcsa_on_
 Customize the JSON file in a text editor and save the file to a folder on you're desktop. Refer the the JSON when deploying the new VCSA.
 
 #### Deployment
-**Note:** *Before the VCSA deploment create a DNS record for the VCSA FQDN**
+**Note:** Make sure the FQDN for the vCSA is resolvable by a DNS server and check if the reverse lookup works.
 
 Perform a template verification without installing:
 
